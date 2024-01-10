@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>E-commerce Feedback Form</title>
+  <script>
+    function submitForm() {
+      // Get form values
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var performance = document.getElementById("performance").value;
+      var features = document.getElementById("features").value;
+      var rating = document.getElementById("rating").value;
+
+      // Simulate form submission (you'd handle this with backend/server logic)
+      // In this example, it simply shows the thank you message
+      document.getElementById("form-container").style.display = "none";
+      document.getElementById("thank-you-message").style.display = "block";
+      document.getElementById("thank-you-name").innerText = name;
+    }
+  </script>
+  <style>
+    #thank-you-message {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="form-container">
+  <h2>Feedback Form</h2>
+
+  <form onsubmit="event.preventDefault(); submitForm()">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="features">features:</label><br>
+    <select id="features" name="features" required>
+      <option value="5">5 - Excellent</option>
+      <option value="4">4 - Very Good</option>
+      <option value="3">3 - Good</option>
+      <option value="2">2 - Fair</option>
+      <option value="1">1 - Poor</option>
+    </select><br><br>
+
+    <label for="performance">performance:</label><br>
+    <select id="performance" name="performance" required>
+      <option value="5">5 - Excellent</option>
+      <option value="4">4 - Very Good</option>
+      <option value="3">3 - Good</option>
+      <option value="2">2 - Fair</option>
+      <option value="1">1 - Poor</option>
+    </select><br><br>
+
+    <label for="design">design:</label><br>
+    <select id="design" name="design" required>
+      <option value="5">5 - Excellent</option>
+      <option value="4">4 - Very Good</option>
+      <option value="3">3 - Good</option>
+      <option value="2">2 - Fair</option>
+      <option value="1">1 - Poor</option>
+    </select><br><br>
+    
+    <label for="rating">Rating:</label><br>
+    <select id="rating" name="rating" required>
+      <option value="5">5 - Excellent</option>
+      <option value="4">4 - Very Good</option>
+      <option value="3">3 - Good</option>
+      <option value="2">2 - Fair</option>
+      <option value="1">1 - Poor</option>
+    </select><br><br>
+
+    <label for="sugession">sugession:</label><br>
+    <textarea id="sugession" name="sugession" rows="4" cols="50" required></textarea><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<div id="thank-you-message">
+  <h2>Thank You!</h2>
+  <p id="thank-you-name"></p>
+  <p>Thank you for your feedback. We appreciate your time.</p>
+</div>
+
+</body>
+</html>

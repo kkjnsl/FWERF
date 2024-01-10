@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="cart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <center><h1 id="headding">Billing System</h1>
+    <div class="container">
+    <div ng-app="myapp" ng-controller="BillPay">
+        <table class="table">
+            
+            <tr>
+                <th>Items</th>
+                <th>Quantity</th>
+                <th>Cost</th>
+                <th>Total</th>
+            </tr>
+            
+            <tr ng-repeat="item in cart.items">
+                <td><input type="text" ng-model="item.description" list="choice">
+                    <datalist id="choice">
+                        <option value="Rice">
+                        <option value="Wheat">
+                        <option value="Horlics">
+                        <option value="Dhall">
+                        <option value="Maggi">
+                        <option value="Soft-Drinks">
+                        <option value="Biscuts">
+                        <option value="Chocolates">
+                        <option value="Pickle">
+                        <option value="Carrot">
+                        <option value="Onion">
+                        <option value="Chilli">
+                        <option value="Potato">
+                        <option value="Tomato">
+                    </datalist></td>
+                <td><input type="number" ng-model="item.qty" ng-required></td>
+                <td><input type="number" ng-model="item.cost" ng-required></td>
+                <td id="total">{{item.qty * item.cost | currency: 'Rs'}}</td>
+                <th><button id="button1" type="submit"><a id="link1" href ng-click="removeItem($index)">X</a></button></th></tr>
+                
+                
+            <tr >
+                <td style="border-bottom: 1px solid;"><button id="button2" type="submit"><a id="link1" href ng-click="addItem()">Add Item</a></button></td>
+                <td style="border-bottom: 1px solid;"></td>
+                <th style="border-bottom: 1px solid;">Total:</th>
+                <td style="border-bottom: 1px solid;">{{total() | currency: 'Rs'}}</td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    </center>
+</body>
+
+</html>

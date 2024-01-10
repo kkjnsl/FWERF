@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library Genre Display</title>
+  <style>
+  </style>
+</head>
+<body>
+  <h2>Select a Genre</h2>
+  <select id="genreSelect" onchange="displayGenreInfo()">
+    <option value="">Select Genre</option>
+    <option value="Fantasy">Fantasy</option>
+    <option value="Romance">Romance</option>
+    <option value="Action">Action</option>
+    <option value="Comedy">Comedy</option>
+    <option value="ScienceFiction">Science Fiction</option>
+
+
+  </select>
+
+  <div id="genreInfo" style="display: none;">
+    <h3 id="genreTitle"></h3>
+    <p id="genreDescription"></p>
+    <a id="genreLink" href="#" target="_blank">Wikipedia Link</a>
+  
+  </div>
+
+  <script>
+    function displayGenreInfo() {
+      var select = document.getElementById("genreSelect");
+      var genre = select.options[select.selectedIndex].value;
+      var genreTitle = document.getElementById("genreTitle");
+      var genreDescription = document.getElementById("genreDescription");
+      var genreLink = document.getElementById("genreLink");
+      var genreInfo = document.getElementById("genreInfo");
+
+      if (genre !== "") {
+        genreInfo.style.display = "block";
+
+        switch (genre) {
+          case "Fantasy":
+            genreTitle.textContent = "Fantasy Genre";
+            genreDescription.textContent = "A fantasy is something you imagine, which might involve dragons, unicorns, or an imaginary best friend.";
+            genreLink.href = "https://en.wikipedia.org/wiki/Fantasy";
+            break;
+            case "Romance":
+            genreTitle.textContent = "Romance Genre";
+            genreDescription.textContent = "fiction novel which places its primary focus on the relationship and romantic love between two people.";
+            genreLink.href = "https://en.wikipedia.org/wiki/Romance";
+            break;
+            case "Action":
+            genreTitle.textContent = "Action Genre";
+            genreDescription.textContent = "closely associated with the thriller and adventure genres and may also contain elements of drama and spy fiction..";
+            genreLink.href = "https://en.wikipedia.org/wiki/Acton";
+            break;
+            case "Comedy":
+            genreTitle.textContent = "Comedy Genre";
+            genreDescription.textContent = "Comedy is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter.";
+            genreLink.href = "https://en.wikipedia.org/wiki/Comedy";
+            break;
+            case "ScienceFiction":
+            genreTitle.textContent = "Science Fiction Genre";
+            genreDescription.textContent ="science fiction speculates about alternative ways of life made possible by technological change .";
+            genreLink.href = "https://en.wikipedia.org/wiki/Science Friction";
+            break;
+          
+          default:
+            break;
+        }
+      } else {
+        genreInfo.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>

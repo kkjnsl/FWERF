@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+
+ 
+
+<head>
+
+  <title>AngularJSDataBinding</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+
+<body ng-controller="MyController as ctrl">
+
+    <CENTER>
+
+    <h1>Data Binding</h1>
+
+    <p>Name: <input  type="text" ng-model="ctrl.message" id="a" style="padding: 10PX;"></p>
+
+    <BR><BR>
+
+    <p style="scale: 200%;">Mail:             {{ctrl.message}}@gmail.com</p></CENTER>
+
+    <script>
+
+        var app=angular.module("myApp",[])
+
+        app.controller("MyController",function(){
+
+            this.message='';
+
+            this.clearMessage=function(){
+
+                this.message='';
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+

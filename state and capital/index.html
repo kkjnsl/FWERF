@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>DOM HTML and JAVA SCRIPT</title>
+</head>
+<body>
+<center>
+<h1> Select the State name to find its capital</h1>
+<form name=”myform”>
+Select State <select name=”country” id=”sbox1”
+onClick=myFunction() required>
+<option value=””> </option>
+<option value=”Chennai “>Tamil Nadu </option>
+<option value=”Thiruvananthapuram”> Kerala
+</option> <option value=”Bangalore”>Karnataka
+</option>
+<option value=”Chandigarh”>Punjab </option>
+<option value=”Chandigarh”>Haryana </option>
+</select><br><br>
+Capital <input type=”text” class=”textbox1”
+id=”sbox2”> </form>
+</center>
+<script>
+function myFunction()
+{ var a=document.getElementById(sbox1).value;
+document.getElementById(sbox2).value=a; }
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>clash of Clans</title>
+  <style>
+    body {
+        background-image: url(jjs.jpg);
+        background-position: center;
+        background-size: cover;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      text-align: center;
+      color: #fcfcfc;
+    }
+
+    #products {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .product {
+      border: 1px solid #ccc;
+      border-radius: 100px;
+      padding: 15px;
+      margin: 15px;
+      background-color: #009dff94;
+      text-align: center;
+    }
+
+    img {
+        width: 200px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #3c2c39;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff0000;
+    }
+
+    #cart {
+        color: #493b5e;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Clash of Clans</h1>
+  
+  <div id="products">
+    <div class="product" data-id="1" data-name="Lunar skin" data-price="499.00">
+      <img src="lunar.jpg" alt="Lunar skin">
+      <h2>lunar skin</h2>
+      <p>Price: &#x20B9;499.00</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-id="2" data-name="Champion Skin" data-price="4999.00">
+      <img src="legendary.jpg" alt="Champion Skin">
+      <h2>Champion Skin</h2>
+      <p>Price: &#x20B9;899.00</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-id="3" data-name="North Skin" data-price="599.00">
+      <img src="north.jpg" alt="North Skin">
+      <h2>North Skin</h2>
+      <p>Price: &#x20B9;499.00</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product" data-id="4" data-name="Magic Skin" data-price="699.00">
+      <img src="magic.jpg" alt="Magic Skin">
+      <h2>Magic Skin</h2>
+      <p>Price: &#x20B9;899.00</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>  
+  </div>
+
+  <h1>Shopping Cart</h1>
+
+  <div id="cart">
+    <ul id="cart-items">
+    </ul>
+    <p>Total: &#x20B9;<span id="total">0.00</span></p>
+  </div>
+
+  <script>
+    function addToCart(button) {
+      const product = button.parentElement;
+      const cartItems = document.getElementById('cart-items');
+      const totalElement = document.getElementById('total');
+
+      const itemId = product.getAttribute('data-id');
+      const itemName = product.getAttribute('data-name');
+      const itemPrice = parseFloat(product.getAttribute('data-price'));
+
+      const li = document.createElement('li');
+      li.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+      cartItems.appendChild(li);
+      const currentTotal = parseFloat(totalElement.textContent);
+      totalElement.textContent = (currentTotal + itemPrice).toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
